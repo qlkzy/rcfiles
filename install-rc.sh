@@ -1,3 +1,4 @@
 #! /bin/bash
 
-ln -s $PWD/pentadactylrc ~/.pentadactylrc
+ln -sf $PWD/pentadactylrc ~/.pentadactylrc
+ln -sf $PWD/vimrc ~/.vimrc
