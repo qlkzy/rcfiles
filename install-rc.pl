@@ -17,3 +17,6 @@ for (@rcfiles) {
         print $output;
     }
 }
+
+# ensure that user-specific bin is available
+`mkdir -p ~/bin`;
