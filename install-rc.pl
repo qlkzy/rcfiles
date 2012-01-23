@@ -8,6 +8,7 @@ local $\ = "\n";
 my @rcfiles = (
                'vimrc',
                'pentadactylrc',
+               'git-ps1'
               );
 
 for (@rcfiles) {
