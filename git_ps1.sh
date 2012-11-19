@@ -269,7 +269,7 @@ __git_prompt() {
     # setup PS1
     local user="\u"
     local host="\h:"
-    local dir="${CYAN}\W${RESET}"
+    local dir="${CYAN}\w${RESET}"
     PS1="$user@$host $dir"
 
     # when in git repository
@@ -326,7 +326,7 @@ marker="$GREEN"
 marker="$RED"
     fi
 marker="${marker}\$${RESET}"
-    PS1="${PS1} ${marker} "
+    PS1="${PS1}\n${marker} "
 }
 PROMPT_COMMAND=__git_prompt
 
