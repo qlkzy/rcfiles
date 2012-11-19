@@ -8,7 +8,9 @@ local $\ = "\n";
 my @rcfiles = (
                'vimrc',
                'pentadactylrc',
-               'git-ps1'
+               'git_ps1.sh',
+               'Xresources',
+               'stumpwmrc'
               );
 
 for (@rcfiles) {
