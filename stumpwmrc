@@ -35,7 +35,18 @@
   ((kbd "s-L") "move-window right")
   ((kbd "s-H") "move-window left")
   ((kbd "s-J") "move-window down")
-  ((kbd "s-K") "move-window up"))
+  ((kbd "s-K") "move-window up")
+  ((kbd "s-Right") "move-focus right")
+  ((kbd "s-Left") "move-focus left")
+  ((kbd "s-Down") "move-focus down")
+  ((kbd "s-Up") "move-focus up")
+  ((kbd "S-s-Right") "move-window right")
+  ((kbd "S-s-Left") "move-window left")
+  ((kbd "S-s-Down") "move-window down")
+  ((kbd "S-s-Up") "move-window up"))
+
+(multiple-define-in-map *root-map*
+  ((kbd "b") "select"))
 
 ;; prompt the user for an interactive command. The first arg is an
 ;; optional initial contents.
@@ -49,7 +60,7 @@
 ;; Read some doc
 (define-key *root-map* (kbd "d") "exec gv")
 ;; Browse somewhere
-(define-key *root-map* (kbd "b") "colon1 exec firefox http://www.")
+;; (define-key *root-map* (kbd "b") "colon1 exec firefox http://www.")
 ;; Ssh somewhere
 (define-key *root-map* (kbd "C-s") "colon1 exec xterm -e ssh ")
 ;; Lock screen
