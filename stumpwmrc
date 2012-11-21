@@ -8,8 +8,9 @@
 (set-prefix-key (kbd "s-SPC"))
 
 ;; SLIME
-(ql:quickload "swank")
-(swank:create-server :port 1389)
+(ignore-errors
+  (ql:quickload "swank")
+  (swank:create-server :port 1389))
 
 (defmacro multiple-define-in-map (map &body defs)
   (append 
@@ -45,8 +46,16 @@
   ((kbd "S-s-Down") "move-window down")
   ((kbd "S-s-Up") "move-window up"))
 
+
 (multiple-define-in-map *root-map*
-  ((kbd "b") "select"))
+  ((kbd "b") "select")
+  ((kbd "m") "mode-line"))
+
+(ignore-errors 
+  (run-shell-command "/usr/bin/stalonetray &")
+  (run-shell-command "gnome-power-manager &")
+  (run-shell-command "nm-applet &")
+  (run-shell-command "dropbox start &"))
 
 ;; prompt the user for an interactive command. The first arg is an
 ;; optional initial contents.
