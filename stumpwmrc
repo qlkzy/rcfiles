@@ -7,10 +7,6 @@
 ;; change the prefix key to something else
 (set-prefix-key (kbd "s-SPC"))
 
-;; SLIME
-(ignore-errors
-  (ql:quickload "swank")
-  (swank:create-server :port 1389))
 
 (defmacro multiple-define-in-map (map &body defs)
   (append 
@@ -50,12 +46,6 @@
 (multiple-define-in-map *root-map*
   ((kbd "b") "select")
   ((kbd "m") "mode-line"))
-
-(ignore-errors 
-  (run-shell-command "/usr/bin/stalonetray &")
-  (run-shell-command "gnome-power-manager &")
-  (run-shell-command "nm-applet &")
-  (run-shell-command "dropbox start &"))
 
 ;; prompt the user for an interactive command. The first arg is an
 ;; optional initial contents.
@@ -124,3 +114,13 @@
 (define-frame-preference "Emacs"
   (1 t t :restore "emacs-editing-dump" :title "...xdvi")
   (0 t t :create "emacs-dump" :class "Emacs"))
+
+
+;;; stuff that can break goes at the end, so that the main config
+;;; doesn't die
+(ql:quickload "swank")
+(swank:create-server :port 1389)
+(run-shell-command "/usr/bin/stalonetray &")
+(run-shell-command "gnome-power-manager &")
+(run-shell-command "nm-applet &")
+(run-shell-command "dropbox start &")
