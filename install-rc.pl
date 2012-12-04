@@ -10,7 +10,8 @@ my @rcfiles = (
                'pentadactylrc',
                'git_ps1.sh',
                'Xresources',
-               'stumpwmrc'
+               'stumpwmrc',
+               'conkerorrc',
               );
 
 for (@rcfiles) {
