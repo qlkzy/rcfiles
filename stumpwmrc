@@ -40,12 +40,20 @@
   ((kbd "S-s-Right") "move-window right")
   ((kbd "S-s-Left") "move-window left")
   ((kbd "S-s-Down") "move-window down")
-  ((kbd "S-s-Up") "move-window up"))
+  ((kbd "S-s-Up") "move-window up")
+  ((kbd "s-e") "emacs")
+  ((kbd "s-i") "conkeror")
+  ((kbd "s-Tab") "windowlist"))
 
 
 (multiple-define-in-map *root-map*
   ((kbd "b") "select")
-  ((kbd "m") "mode-line"))
+  ((kbd "m") "mode-line")
+  ((kbd "Tab") "windowlist"))
+
+(defcommand conkeror () ()
+  "run conkeror"
+  (run-or-raise "exec conkeror" '(:class "Conkeror")))
 
 ;; prompt the user for an interactive command. The first arg is an
 ;; optional initial contents.
