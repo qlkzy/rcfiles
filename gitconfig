@@ -1,0 +1,11 @@
+[user]
+	name = David Morris
+	email = davidrowlandmorris@gmail.com
+[alias]
+	st = status
+	ci = commit
+	cim = commit -m
+	cam = commit -a -m
+	last = log -n1
+	a = add
+	aa = add -A
