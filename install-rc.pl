@@ -12,6 +12,7 @@ my @rcfiles = (
                'Xresources',
                'stumpwmrc',
                'conkerorrc',
+               'bash_aliases',
                'gitconfig',
               );
 
