@@ -2,10 +2,15 @@
 	name = David Morris
 	email = davidrowlandmorris@gmail.com
 [alias]
+    d = diff
+    dc = diff --cached
+    s = status
 	st = status
 	ci = commit
+    co = checkout
 	cim = commit -m
 	cam = commit -a -m
 	last = log -n1
+    l = log
 	a = add
 	aa = add -A
