@@ -14,3 +14,4 @@
     l = log
 	a = add
 	aa = add -A
+    r = rebase
