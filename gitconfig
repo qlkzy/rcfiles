@@ -19,3 +19,6 @@
     d = diff --color
     dc = diff --cached --color
     r = rebase
+    submod = submodule
+    smod = submodule
+    sm = submodule
