@@ -9,3 +9,6 @@
 	last = log -n1
 	a = add
 	aa = add -A
+	co = checkout
+    d = diff --color
+    dc = diff --cached --color

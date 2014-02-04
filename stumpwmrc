@@ -63,6 +63,7 @@
       (eval-command cmd t))))
 
 (setf *window-border-style* 'thin)
+(setf *mouse-focus-policy* :click)
 
 ;; Read some doc
 (define-key *root-map* (kbd "d") "exec gv")
@@ -123,6 +124,13 @@
   (1 t t :restore "emacs-editing-dump" :title "...xdvi")
   (0 t t :create "emacs-dump" :class "Emacs"))
 
+
+(defun focus-java-window (curr last)
+  (pushnew :WM_TAKE_FOCUS (xlib:wm-protocols (window-xwin curr)))
+  (xlib:set-input-focus *display* (window-xwin curr) :none))
+
+(add-hook *focus-window-hook* 'focus-java-window)
+(remove-hook *focus-window-hook* 'focus-java-window)
 
 ;;; stuff that can break goes at the end, so that the main config
 ;;; doesn't die

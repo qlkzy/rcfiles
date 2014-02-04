@@ -2,7 +2,7 @@ xterm*renderFont:      true
 xterm*eightBitInput:   false
 xterm*metaSendsEscape: true
 xterm*faceName:        DejaVu Sans Mono
-xterm*faceSize:        14
+xterm*faceSize:        12
 *foreground:           #c5c8c6
 *background:           #1d1f21
 *cursorColor:          #aeafad
