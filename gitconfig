@@ -1,24 +1,24 @@
 [user]
-	name = David Morris
-	email = davidrowlandmorris@gmail.com
+    name = David Morris
+    email = davidrowlandmorris@gmail.com
 [alias]
     d = diff --color
     dc = diff --cached --color
     s = status
-	st = status
-	ci = commit
+    st = status
+    ci = commit
     co = checkout
-	cim = commit -m
-	cam = commit -a -m
-	last = log -n1 --color
+    cim = commit -m
+    cam = commit -a -m
+    last = log -n1 --color
     l = log --color
     lp = log -p --color
-	a = add
-	aa = add -A
-	co = checkout
-    d = diff --color
-    dc = diff --cached --color
+    a = add
+    aa = add -A
     r = rebase
     submod = submodule
     smod = submodule
     sm = submodule
+    b = branch
+[push]
+    default = simple
