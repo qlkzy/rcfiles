@@ -16,6 +16,10 @@ my @rcfiles = (
                'gitconfig',
               );
 
+my @bin = (
+           'phrases'
+          );
+
 for (@rcfiles) {
     my $output = `ln -sf $ENV{PWD}/$_ ~/.$_`;
     if ($?) {
@@ -25,3 +29,11 @@ for (@rcfiles) {
 
 # ensure that user-specific bin is available
 `mkdir -p ~/bin`;
+
+for (@bin) {
+    my $output = `ln -sf $ENV{PWD}/$_ ~/bin/$_`;
+    if ($?) {
+        print $output;
+    }
+}
+

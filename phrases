@@ -1,0 +1,31 @@
+#!/usr/bin/env perl
+
+@positive = (
+             "Sir?",
+             "You rang?",
+             "Yes?",
+             "How may I be of assistance?",
+             "Awaiting instructions.",
+             "Would you like to play a game?",
+             "You are in a maze of twisty passages, all alike.",
+            );
+@negative = (
+             "Perhaps not, sir.",
+             "Better luck next time, sir.",
+             "Pardon?",
+             "Ah.",
+             "Oh.",
+             "I think not, sir.",
+             "Unconvincing, sir.",
+             "Indeed, sir?",
+             "I'm sorry Dave, I'm afraid I can't do that.",
+             "DON'T PANIC",
+             "No.",
+             "You have been eaten by a grue.",
+            );
+
+if ($ARGV[0] eq 'p') {
+    print $positive[rand @positive];
+} else {
+    print $negative[rand @negative];
+}

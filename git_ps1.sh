@@ -49,7 +49,7 @@ case "$TERM" in
         YELLOW="\[$ESC[0;33m\]"
         LIGHT_VIOLET="\[$ESC[1;35m\]"
         RESET="\[$ESC[0m\]"
-    ;;
+        ;;
     *)
         ESC=""
         RED=""
@@ -61,18 +61,18 @@ case "$TERM" in
         YELLOW=""
         LIGHT_VIOLET=""
         RESET=""
-    ;;
+        ;;
 esac
 
 # prints path to git directory
 __git_dirname() {
     local dirname
     if [ -d .git ]; then
-dirname=".git"
+        dirname=".git"
     else
-dirname="$(git rev-parse --git-dir 2>/dev/null)"
+        dirname="$(git rev-parse --git-dir 2>/dev/null)"
     fi
-echo "$dirname"
+    echo "$dirname"
 }
 
 # gets the branching state of the repository
@@ -82,25 +82,25 @@ __git_branching_state() {
     local state
 
     if [ -f "$gitdir/rebase-merge/interactive" ]; then
-state="rebase-i"
+        state="rebase-i"
     elif [ -d "$gitdir/rebase-merge" ]; then
-state="rebase-m"
+        state="rebase-m"
     else
-if [ -d "$gitdir/rebase-apply" ]; then
-if [ -f "$gitdir/rebase-apply/rebasing" ]; then
-state="rebase"
+        if [ -d "$gitdir/rebase-apply" ]; then
+            if [ -f "$gitdir/rebase-apply/rebasing" ]; then
+                state="rebase"
             elif [ -f "$gitdir/rebase-apply/applying" ]; then
-state="am"
+                state="am"
             else
-state="am/r"
+                state="am/r"
             fi
-elif [ -f "$gitdir/MERGE_HEAD" ]; then
-state="merge" # merging
+        elif [ -f "$gitdir/MERGE_HEAD" ]; then
+            state="merge" # merging
         elif [ -f "$gitdir/BISECT_LOG" ]; then
-state="bisect" # bisecting
+            state="bisect" # bisecting
         fi
-fi
-echo "$state"
+    fi
+    echo "$state"
 }
 
 # prints the working directory state of the repository using symbols
@@ -111,20 +111,20 @@ __git_working_dir_symbols() {
 
     # in working dir
     if [ true = "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]; then
-git diff --no-ext-diff --quiet --exit-code || symbols="*"
+        git diff --no-ext-diff --quiet --exit-code || symbols="*"
         if git rev-parse --quiet --verify HEAD >/dev/null; then
-git diff-index --cached --quiet HEAD -- || symbols="${symbols}+"
+            git diff-index --cached --quiet HEAD -- || symbols="${symbols}+"
         fi
-fi
+    fi
 
     # stashed
     git rev-parse --verify refs/stash >/dev/null 2>&1 && symbols="${symbols}^"
 
     # untracked files
     if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-symbols="${symbols}%"
+        symbols="${symbols}%"
     fi
-echo "$symbols"
+    echo "$symbols"
 }
 
 # prints current / parent branch name
@@ -136,8 +136,8 @@ __git_branch_name() {
     local gitdir="$2" || "$(__git_dirname)"
     branch="$(git symbolic-ref HEAD 2>/dev/null)" || {
         branch="$(git describe --contains --all HEAD 2>/dev/null)" ||
-            branch="$(cut -c1-7 "$gitdir/HEAD" 2>/dev/null)..." ||
-                branch="unknown"
+        branch="$(cut -c1-7 "$gitdir/HEAD" 2>/dev/null)..." ||
+        branch="unknown"
 
         branch="${branch##remotes/}"
         branch="($branch)"
@@ -146,8 +146,8 @@ __git_branch_name() {
 
     # parent branch name
     if [ parent = "$1" ]; then
-if [ master = "$branch" ]; then
-local refs="$(git for-each-ref --format="%(refname:short)")"
+        if [ master = "$branch" ]; then
+            local refs="$(git for-each-ref --format="%(refname:short)")"
             case "$refs" in
                 *git-svn*) # git-svn repo
                     branch='git-svn' ;;
@@ -156,7 +156,7 @@ local refs="$(git for-each-ref --format="%(refname:short)")"
                 *)
                     branch='HEAD' ;; # same repo
             esac
-else
+        else
             # TODO.. would be nice to improve this to determine the actual
             # merge base (git merge-base) and compare against that instead of
             # always assuming master. In this way a 'topic/feature' branch
@@ -166,19 +166,19 @@ else
             # fuzzy.
             branch='master' # on a branch
         fi
-fi
-echo "$branch"
+    fi
+    echo "$branch"
 }
 
 # prints if inside git directory or bare git repository
 __git_in_gitdir() {
     if [ true = "$(git rev-parse --is-inside-git-dir 2>/dev/null)" ]; then
-if [ true = "$(git rev-parse --is-bare-repository 2>/dev/null)" ]; then
-echo 'bare'
+        if [ true = "$(git rev-parse --is-bare-repository 2>/dev/null)" ]; then
+            echo 'bare'
         else
-echo 'gitdir'
+            echo 'gitdir'
         fi
-fi
+    fi
 }
 
 # prints number of commits that are available on ref B but not ref A
@@ -196,10 +196,10 @@ __git_count_str() {
     local behind_count="$(__git_commit_diff_count HEAD $parent)"
 
     if [ 0 -lt "$ahead_count" ]; then
-str="${GREEN}+${ahead_count}${RESET}"
+        str="${GREEN}+${ahead_count}${RESET}"
     fi
 
-if [ 0 -lt "$behind_count" ]; then
+    if [ 0 -lt "$behind_count" ]; then
         [ -n "$str" ] && str="$str/"
         str="${str}${RED}-${behind_count}${RESET}"
     fi
@@ -214,9 +214,9 @@ __git_secs_since() {
     local last_commit="$(git log --format='%at' -1 2>/dev/null)"
     if [ -z "$last_commit" ]; then # probably initial git init, no commits
         return
-fi
-if [ 0 -lt "$now" ] && [ 0 -lt "$last_commit" ]; then
-echo "$((now - last_commit))"
+    fi
+    if [ 0 -lt "$now" ] && [ 0 -lt "$last_commit" ]; then
+        echo "$((now - last_commit))"
     fi
 }
 
@@ -240,7 +240,7 @@ __git_timestr_relformat() {
         [ -n "$timestr" ] && timestr="$timestr,"
         timestr="${days}d"
     fi
-if [ 0 -lt "$hrs" ]; then
+    if [ 0 -lt "$hrs" ]; then
         [ -n "$timestr" ] && timestr="$timestr,"
         timestr="${timestr}${hrs}h"
     fi
@@ -249,17 +249,17 @@ if [ 0 -lt "$hrs" ]; then
 
     # add a hint of color
     if [ -n "$2" ]; then
-local color
+        local color
         if [ 1800 -lt "$secs" ]; then # 30 mins
             color="$LIGHT_RED"
         elif [ 600 -lt "$secs" ]; then # 10 mins
             color="$YELLOW"
         else
-color="$LIGHT_GREEN"
+            color="$LIGHT_GREEN"
         fi
-timestr="${color}${timestr}${RESET}"
+        timestr="${color}${timestr}${RESET}"
     fi
-echo "$timestr"
+    echo "$timestr"
 }
 
 # install git integration into PS1
@@ -272,10 +272,14 @@ __git_prompt() {
     local dir="${CYAN}\w${RESET}"
     PS1="$user@$host $dir"
 
+    if [ -n "$GOPATH" ]; then
+        PS1="${PS1}\n    go:${GREEN}$GOPATH${RESET}"
+    fi
+    
     # when in git repository
     local gitdir="$(__git_dirname)"
     if [ -n "$gitdir" ]; then
-local branch
+        local branch
         local extras
 
         local in_gitdir="$(__git_in_gitdir)"
@@ -283,7 +287,7 @@ local branch
             gitdir|bare)
                 branch="~$(echo $in_gitdir | tr "[:lower:]" "[:upper:]")~"
                 extras=""
-            ;;
+                ;;
             *)
                 local branch="$(__git_branch_name current ${gitdir})"
                 local br_state="$(__git_branching_state $gitdir)"
@@ -295,7 +299,7 @@ local branch
                         branch="$(cat "$gitdir/rebase-merge/head-name")"
                         branch="${branch##refs/heads/}"
                         branch="${branch##remotes/}"
-                    ;;
+                        ;;
                 esac
 
                 # extras (count strings, working dir symbols)
@@ -305,28 +309,32 @@ local branch
                 # calc relative time diff of last commit
                 local secs="$(__git_secs_since)"
                 if [ -n "$secs" ]; then
-local timestr=" [$(__git_timestr_relformat $secs true)]"
+                    local timestr=" [$(__git_timestr_relformat $secs true)]"
                     extras="${countstr}${wd_syms}${timestr}"
                 else
-extras="${countstr}${wd_syms}"
+                    extras="${countstr}${wd_syms}"
                 fi
-            ;;
+                ;;
         esac
-branch="${YELLOW}(${branch})${RESET}"
+        branch="${YELLOW}(${branch})${RESET}"
 
         # update PS1
-        PS1="${PS1} ${branch}${extras}"
+        PS1="${PS1}\n    git:${branch}${extras}"
     fi
-
+    
     # setup marker that acts off of last exit code
     local marker
+    local req
     if [ 0 -eq "$last_exit" ]; then
-marker="$GREEN"
+        req=`phrases p`
+        marker="$GREEN"
     else
-marker="$RED"
+        req=`phrases n`
+        marker="$RED"
     fi
-marker="${marker}\$${RESET}"
-    PS1="${PS1}\n${marker} "
+    req="${YELLOW}${req}${RESET}"
+    marker="${marker}\$${RESET}"
+    PS1="${PS1}\n${req}\n${marker} "
 }
 PROMPT_COMMAND=__git_prompt
 
