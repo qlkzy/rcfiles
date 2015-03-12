@@ -20,5 +20,3 @@
     smod = submodule
     sm = submodule
     b = branch
-[push]
-    default = simple
