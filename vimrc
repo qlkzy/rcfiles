@@ -22,3 +22,6 @@ set tabstop=4
 set expandtab
 
 colorscheme slate
+
+filetype plugin indent on
+
