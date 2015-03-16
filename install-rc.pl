@@ -14,6 +14,7 @@ my @rcfiles = (
                'conkerorrc',
                'bash_aliases',
                'gitconfig',
+               'latexmkrc',
               );
 
 my @bin = (
@@ -36,4 +37,3 @@ for (@bin) {
         print $output;
     }
 }
-
