@@ -120,11 +120,6 @@
   (0 t   nil :class "XTerm")
   (1 nil t   :class "aMule"))
 
-(define-frame-preference "Emacs"
-  (1 t t :restore "emacs-editing-dump" :title "...xdvi")
-  (0 t t :create "emacs-dump" :class "Emacs"))
-
-
 (defun focus-java-window (curr last)
   (pushnew :WM_TAKE_FOCUS (xlib:wm-protocols (window-xwin curr)))
   (xlib:set-input-focus *display* (window-xwin curr) :none))
