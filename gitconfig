@@ -15,8 +15,14 @@
     lp = log -p --color
     a = add
     aa = add -A
+    ap = add -p
+    au = add -u
     r = rebase
     submod = submodule
     smod = submodule
     sm = submodule
     b = branch
+[push]
+	default = simple
+[github]
+	user = qlkzy
