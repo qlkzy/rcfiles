@@ -13,6 +13,13 @@
     last = log -n1 --color
     l = log --color
     lp = log -p --color
+    lgo = log --graph --oneline
+    lo = log --oneline
+    lg = log --graph
+    lr = log -n10 --oneline
+    lrg = log -n10 --graph --oneline
+    los = log --oneline --stat
+    lrs = log -n5 --oneline --stat
     a = add
     aa = add -A
     ap = add -p
