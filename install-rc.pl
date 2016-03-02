@@ -15,6 +15,7 @@ my @rcfiles = (
                'bash_aliases',
                'gitconfig',
                'latexmkrc',
+               'monokai.sh',
               );
 
 my @bin = (

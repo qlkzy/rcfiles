@@ -3,22 +3,26 @@ xterm*eightBitInput:   false
 xterm*metaSendsEscape: true
 xterm*faceName:        DejaVu Sans Mono
 xterm*faceSize:        12
-*foreground:           #c5c8c6
-*background:           #1d1f21
-*cursorColor:          #aeafad
-*color0:               #000000
-*color1:               #912226
-*color2:               #778900
-*color3:               #ae7b00
-*color4:               #1d2594
-*color5:               #682a9b
-*color6:               #2b6651
-*color7:               #929593
-*color8:               #666666
-*color9:               #cc6666
-*color10:              #b5bd68
-*color11:              #f0c674
-*color12:              #81a2be
-*color13:              #b294bb
-*color14:              #8abeb7
-*color15:              #ecebec
+
+*.foreground: #f8f8f2
+*.background: #272822
+*.cursorColor: #f8f8f2
+
+*.color0: #272822
+*.color1: #f92672
+*.color2: #a6e22e
+*.color3: #f4bf75
+*.color4: #66d9ef
+*.color5: #ae81ff
+*.color6: #a1efe4
+*.color7: #f8f8f2
+
+*.color8: #75715e
+*.color9: #fd971f
+*.color10: #383830
+*.color11: #49483e
+*.color12: #a59f85
+*.color13: #f5f4f1
+*.color14: #cc6633
+*.color15: #f9f8f5
+
