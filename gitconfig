@@ -4,6 +4,7 @@
 [alias]
     d = diff --color
     dc = diff --cached --color
+    ds = diff --stat
     s = status
     st = status
     ci = commit
