@@ -16,11 +16,15 @@
     lp1 = log -n1 --color -p
     l = log --color
     lp = log -p --color
-    lo = log --oneline
-    lg = log --graph --oneline
-    lgl = log --graph
     lq = log --graph --pretty=format:'%C(auto)%h %s'
     lqs = log --graph --pretty=format:'%C(auto)%h %s' -n 10
+    lgo = log --graph --oneline
+    lo = log --oneline
+    lg = log --graph
+    lr = log -n10 --oneline
+    lrg = log -n10 --graph --oneline
+    los = log --oneline --stat
+    lrs = log -n5 --oneline --stat
     a = add
     aa = add -A
     ap = add -p
