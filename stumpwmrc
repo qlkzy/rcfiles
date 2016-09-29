@@ -42,7 +42,7 @@
   ((kbd "S-s-Down") "move-window down")
   ((kbd "S-s-Up") "move-window up")
   ((kbd "s-e") "emacs")
-  ((kbd "s-i") "conkeror")
+  ((kbd "s-i") "firefox")
   ((kbd "s-Tab") "windowlist"))
 
 
@@ -51,9 +51,9 @@
   ((kbd "m") "mode-line")
   ((kbd "Tab") "windowlist"))
 
-(defcommand conkeror () ()
-  "run conkeror"
-  (run-or-raise "exec conkeror" '(:class "Conkeror")))
+(defcommand firefox () ()
+  "run firefox"
+  (run-or-raise "exec firefox" '(:class "Firefox")))
 
 ;; prompt the user for an interactive command. The first arg is an
 ;; optional initial contents.
