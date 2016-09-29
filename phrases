@@ -2,13 +2,25 @@
 
 @positive = (
              "Sir?",
+             "Sir?",
+             "Sir?",
              "You rang?",
+             "Yes?",
+             "Yes?",
              "Yes?",
              "How may I be of assistance?",
              "Awaiting instructions.",
+             "Awaiting instructions.",
+             "Awaiting instructions.",
              "Would you like to play a game?",
              "You are in a maze of twisty passages, all alike.",
+             "TURBO mode activated.",
+             "Go go go!",
+             "This! Is! A! Meaningless! Sentence!",
+             "Excellent.",
             );
+
+
 @negative = (
              "Perhaps not, sir.",
              "Better luck next time, sir.",
@@ -22,7 +34,33 @@
              "DON'T PANIC",
              "No.",
              "You have been eaten by a grue.",
+             "How underwhelming.",
+             "Perhaps you should just go and lie down.",
+             "This statement is false.",
+             "Threat level: NaN",
+             "This is not a drill! *This* is a drill: <brrrr>",
+             "Cthulhu fhtagn.",
+             "Error.",
+             "Programmers are our best defence against Skynet.",
+             "Stop trying to develop software; perhaps photographs would suit you better?",
+             "Warning! Something is amiss within the blinking-lights box!",
+             "Sarcasm mode activated.",
+             "GO NORTH",
+             "Disappointing.",
+             "What?",
+             "Eh?",
+             "Seriously?",
+             "Please try again.",
+             "Please reattach head.",
+             "Do, or do not...on balance, just don't.",
+             "MUAHAHAHAHAHAHA?",
+             "Nothing to see here, move along.",
+             "*whimper*",
+             "Bees?",
+             "Never gonna give you up, never gonna let you down...",
+             "Please leave me alone.",
             );
+
 
 if ($ARGV[0] eq 'p') {
     print $positive[rand @positive];
