@@ -326,15 +326,15 @@ __git_prompt() {
     local marker
     local req
     if [ 0 -eq "$last_exit" ]; then
-        req=`phrases p`
+        req=$(phrases p)
         marker="$GREEN"
     else
-        req=`phrases n`
+        req=$(phrases n)
         marker="$RED"
     fi
     req="${YELLOW}${req}${RESET}"
     marker="${marker}\$${RESET}"
-    PS1="${PS1}\n${req}\n${marker} "
+    PS1="${PS1}\n${req}${marker} "
 }
 PROMPT_COMMAND=__git_prompt
 

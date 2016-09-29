@@ -1,5 +1,8 @@
 #!/usr/bin/env perl
 
+$\ = "\n ";
+
+
 @positive = (
              "Sir?",
              "You rang?",
@@ -77,7 +80,9 @@
 
 
 if ($ARGV[0] eq 'p') {
-    print $positive[rand @positive];
+    if (int(rand 5) == 0) {
+        print $positive[rand @positive];
+    }
 } else {
     print $negative[rand @negative];
 }
