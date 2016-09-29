@@ -2,15 +2,9 @@
 
 @positive = (
              "Sir?",
-             "Sir?",
-             "Sir?",
              "You rang?",
              "Yes?",
-             "Yes?",
-             "Yes?",
              "How may I be of assistance?",
-             "Awaiting instructions.",
-             "Awaiting instructions.",
              "Awaiting instructions.",
              "Would you like to play a game?",
              "You are in a maze of twisty passages, all alike.",
@@ -63,6 +57,14 @@
              "Not good.",
              "Now you can panic",
              "Just stop.",
+             "Oh. Good.",
+             "Try again.",
+             "Once more, with feeling.",
+             "You should quit while you're ahead. Failing that, just quit.",
+             "Just... no.",
+             "Disaster",
+             "Warning! Do not let the computer drop below 50 mph!",
+             "Apocalypse imminent, please stand by.",
             );
 
 
