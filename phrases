@@ -100,9 +100,7 @@ $\ = "\\n";
 
 
 if ($ARGV[0] eq 'p') {
-    if (int(rand 5) == 0) {
-        print $positive[rand @positive];
-    }
+    print $positive[rand @positive] if (int(rand 5) == 0);
 } else {
     print $negative[rand @negative];
 }
