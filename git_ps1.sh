@@ -321,6 +321,12 @@ __git_prompt() {
         # update PS1
         PS1="${PS1}\n    git:${branch}${extras}"
     fi
+
+    if [ -n "$VIRTUAL_ENV" ]; then
+        venv=$VIRTUAL_ENV
+        [[ "$venv" =~ ^"$HOME"(/|$) ]] && venv="~${venv#$HOME}"
+        PS1="${PS1}\n    venv:${venv}"
+    fi
     
     # setup marker that acts off of last exit code
     local marker
