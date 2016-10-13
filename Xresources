@@ -4,6 +4,12 @@ xterm*metaSendsEscape: true
 xterm*faceName:        DejaVu Sans Mono
 xterm*faceSize:        12
 
+urxvt*font: xft:DejaVu Sans Mono:size=12
+urxvt*scrollbar: false
+URxvt.scrollBar_right: true
+URxvt.scrollBar_floating: false
+URxvt.scrollstyle: plain
+
 *.foreground: #f8f8f2
 *.background: #272822
 *.cursorColor: #f8f8f2
