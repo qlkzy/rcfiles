@@ -1,0 +1,9 @@
+#!/bin/bash
+
+find $1 -iname '*.java' |
+    grep -v test |
+    while read f; do
+        echo -ne "$f: "
+        cat "$f" | tr -dc '{};'
+        echo -e "\n"
+    done
