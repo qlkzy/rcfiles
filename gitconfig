@@ -1,6 +1,6 @@
 [user]
     name = David Morris
-    email = davidrowlandmorris@gmail.com
+    email = david.morris@kcom.com
 [alias]
     d = diff --color
     dc = diff --cached --color
@@ -19,12 +19,16 @@
     lq = log --graph --pretty=format:'%C(auto)%h %s'
     lqs = log --graph --pretty=format:'%C(auto)%h %s' -n 10
     lgo = log --graph --oneline
+    lgod = log --graph --oneline --decorate
     lo = log --oneline
+    lod = log --oneline --decorate
     lg = log --graph
+    lgd = log --graph --decorate
     lr = log -n10 --oneline
     lrg = log -n10 --graph --oneline
     los = log --oneline --stat
     lrs = log -n5 --oneline --stat
+    lot = log --date=iso-local --pretty=format:'%C(auto)%h %ai %s'
     a = add
     aa = add -A
     ap = add -p

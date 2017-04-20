@@ -43,17 +43,62 @@
   ((kbd "S-s-Up") "move-window up")
   ((kbd "s-e") "emacs")
   ((kbd "s-i") "firefox")
+  ((kbd "s-c") "exec urxvt")
   ((kbd "s-Tab") "windowlist"))
 
 
 (multiple-define-in-map *root-map*
   ((kbd "b") "select")
   ((kbd "m") "mode-line")
-  ((kbd "Tab") "windowlist"))
+  ((kbd "Tab") "windowlist")
+  ((kbd "c") "exec urxvt"))
 
 (defcommand firefox () ()
   "run firefox"
   (run-or-raise "exec firefox" '(:class "Firefox")))
+
+(defcommand tesco-prod () () "tesco prod shell" (run-shell-command "~/keyshells/tesco/prod"))
+(defcommand tesco-staging () () "tesco staging shell" (run-shell-command "~/keyshells/tesco/staging"))
+(defcommand tesco-uat () () "tesco uat shell" (run-shell-command "~/keyshells/tesco/uat"))
+
+
+(defcommand lsm-prod () () "lsm
+ prod shell" (run-shell-command "~/keyshells/lsm/prod"))
+
+
+(defcommand seft-prod () () "seft prod shell" (run-shell-command "~/keyshells/seft/prod"))
+(defcommand seft-staging () () "seft staging shell" (run-shell-command "~/keyshells/seft/staging"))
+
+
+(defcommand acca-prod () () "acca prod shell" (run-shell-command "~/keyshells/acca/prod"))
+(defcommand acca-oat () () "acca oat shell" (run-shell-command "~/keyshells/acca/oat"))
+(defcommand acca-uat () () "acca uat shell" (run-shell-command "~/keyshells/acca/uat"))
+(defcommand acca-sys () () "acca sys shell" (run-shell-command "~/keyshells/acca/sys"))
+(defcommand acca-dev () () "acca dev shell" (run-shell-command "~/keyshells/acca/dev"))
+
+(defcommand rdg-portal-prod () () "rdg portal prod shell" (run-shell-command "~/keyshells/rdg/portal/prod"))
+(defcommand rdg-portal-lvtst () () "rdg portal lvtst shell" (run-shell-command "~/keyshells/rdg/portal/lvtst"))
+(defcommand rdg-portal-preprod () () "rdg portal preprod shell" (run-shell-command "~/keyshells/rdg/portal/preprod"))
+
+(defcommand rdg-common-services-prod () () "rdg common services prod shell" (run-shell-command "~/keyshells/rdg/common-services/prod"))
+(defcommand rdg-common-services-test () () "rdg common services test shell" (run-shell-command "~/keyshells/rdg/common-services/test"))
+
+(multiple-define-in-map *top-map*
+                        ;; tesco shells
+                        ((kbd "s-F1") "tesco-prod")
+
+                        ;; seft shells
+                        ((kbd "s-F5") "seft-prod")
+                        ((kbd "s-F6") "seft-staging")
+
+                        ;; acca shells
+                        ((kbd "s-F8") "acca-prod")
+                        ((kbd "s-F9") "acca-oat")
+                        ((kbd "s-F10") "acca-uat")
+                        ((kbd "s-F11") "acca-sys")
+                        ((kbd "s-F12") "acca-dev")
+                        )
+
 
 ;; prompt the user for an interactive command. The first arg is an
 ;; optional initial contents.
@@ -130,7 +175,7 @@
 ;;; stuff that can break goes at the end, so that the main config
 ;;; doesn't die
 (ql:quickload "swank")
-(swank:create-server :port 1389)
+;; (swank:create-server :port 1389)
 (run-shell-command "/usr/bin/stalonetray &")
 (run-shell-command "gnome-power-manager &")
 (run-shell-command "nm-applet &")

@@ -16,7 +16,7 @@ my @rcfiles = (
                'gitconfig',
                'latexmkrc',
                'monokai.sh',
-               'base16-ir-black.sh',
+               'base16-brewer.sh',
               );
 
 my @bin = (
