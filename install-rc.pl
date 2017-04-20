@@ -20,7 +20,8 @@ my @rcfiles = (
               );
 
 my @bin = (
-           'phrases'
+           'phrases',
+           'ssig',
           );
 
 for (@rcfiles) {
