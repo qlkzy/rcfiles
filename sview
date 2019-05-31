@@ -1,0 +1,3 @@
+#!/bin/bash
+
+view $(find "$@" -type f | selecta)

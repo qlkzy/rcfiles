@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+use Term::ANSIColor qw(:constants);
+
+while (<>) {
+    s{([\w.-]+)(/src/main/java/)([\w/.-]+?)/([\w]+).java}{BOLD.YELLOW.$1.RESET.$2.BOLD.BLUE.$3.RESET."/".BOLD.WHITE.$4.RESET.".java"}egx;
+    s/([{}]+)/BOLD.RED.$1.RESET/eg;
+    s/(;+)/BOLD.GREEN.$1.RESET/eg;
+} continue {
+    print;
+}

@@ -1,0 +1,38 @@
+#!/usr/bin/perl
+
+$\ = "\n";
+
+my $state;
+
+undef $state;
+
+while (<>) {
+
+    /log\.(\w+)\(\s*"(\w+)/ && do {
+        print "$ARGV:$.: $1 $2";
+        next;
+    };
+
+    /log\.(\w+)\(\s*$/ && do {
+        $state = "$ARGV:$.: $1";
+        next;
+    };
+
+    /^\s*"(\w+)/ && do {
+        if ($state) {
+            print "$state $1";
+        }
+        undef $state;
+        next;
+    };
+
+    /\S/ && do {
+        undef $state;
+        next;
+    };
+    
+} continue {
+    if (eof(ARGV)) {
+        undef $state;
+    }
+}

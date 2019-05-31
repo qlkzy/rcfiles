@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec vim $(find "$@" -type f -iname '*.java' | selecta)

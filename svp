@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec view $(find "$@" -type f -iname '*.py' | selecta)
