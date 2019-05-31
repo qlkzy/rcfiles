@@ -21,6 +21,9 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 
+set ignorecase
+set smartcase
+
 colorscheme slate
 
 filetype plugin indent on

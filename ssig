@@ -3,7 +3,8 @@
 find $1 -iname '*.java' |
     grep -v test |
     while read f; do
-        echo -ne "$f: "
+        echo -ne "$f "
         cat "$f" | tr -dc '{};'
-        echo -e "\n"
+        echo
+        # echo -e "\n"
     done

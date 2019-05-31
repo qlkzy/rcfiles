@@ -37,3 +37,10 @@ xterm*highlightColor:  #909090
 !*.color14: #cc6633
 !*.color15: #f9f8f5
 
+URxvt.perl-lib: /usr/lib/urxvt/perl/,/home/drm/.urxvt/ext
+URxvt.perl-ext: font-size
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-equal:  perl:font-size:reset
+URxvt.keysym.C-slash:  perl:font-size:show
+
