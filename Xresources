@@ -1,7 +1,7 @@
 xterm*renderFont:      true
 xterm*eightBitInput:   false
 xterm*metaSendsEscape: true
-xterm*faceName:        DejaVu Sans Mono
+xterm*faceName:        Roboto Mono
 xterm*faceSize:        12
 
 urxvt*font: xft:DejaVu Sans Mono:size=12
@@ -9,6 +9,7 @@ urxvt*scrollbar: false
 URxvt.scrollBar_right: true
 URxvt.scrollBar_floating: false
 URxvt.scrollstyle: plain
+Rxvt.saveLines: 200000
 
 *.foreground: #f8f8f2
 *.background: #272822

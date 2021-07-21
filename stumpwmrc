@@ -6,7 +6,15 @@
 
 ;; change the prefix key to something else
 (set-prefix-key (kbd "s-SPC"))
+(ql:quickload "clx-truetype")
+(clx-truetype:cache-fonts)
+(load-module "ttf-fonts")
+(load-module "battery-portable")
+(load-module "wifi")
+(set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 32))
 
+(ql:quickload "xembed")
+(load-module "stumptray")
 
 (defmacro multiple-define-in-map (map &body defs)
   (append 
@@ -15,14 +23,21 @@
         `(define-key ,map ,(car d) ,(cadr d)))))
 
 
-(defcommand firefox () ()
-  "run firefox"
-  (run-or-raise "exec firefox" '(:class "Firefox")))
+(defcommand chrome () ()
+  "run chrome"
+  (run-or-raise "exec google-chrome" '(:class "Google-chrome")))
 
 (defcommand intellij () ()
   "run intellij"
   (run-or-raise "exec idea" '(:class "jetbrains-idea-ce")))
 
+(defcommand pycharm () ()
+  "run pycharm"
+  (run-or-raise "exec pycharm" '(:class "jetbrains-pycharm")))
+
+(defcommand slack () ()
+  "run slack"
+  (run-or-raise "exec slack" '(:class "Slack")))
 
 (multiple-define-in-map *top-map* 
   ((kbd "s-0") "select-window-by-number 0")
@@ -52,8 +67,10 @@
   ((kbd "S-s-Down") "move-window down")
   ((kbd "S-s-Up") "move-window up")
   ((kbd "s-e") "emacs")
-  ((kbd "s-i") "firefox")
+  ((kbd "s-i") "chrome")
   ((kbd "s-j") "intellij")
+  ((kbd "s-p") "pycharm")
+  ((kbd "s-s") "slack")
   ((kbd "s-c") "exec urxvt")
   ((kbd "s-Tab") "windowlist"))
 
@@ -64,9 +81,18 @@
   ((kbd "Tab") "windowlist")
   ((kbd "c") "exec urxvt"))
 
+(setf *window-format* "%m%n%s%c")
+(setf *screen-mode-line-format* (list "[^B%n^b] %W^>%d [%B][%I]"))
+(setf *time-modeline-string* "%a %b %e %k:%M")
+(setf *mode-line-timeout* 2)
+
+
 (defcommand tesco-prod () () "tesco prod shell" (run-shell-command "~/keyshells/tesco/prod"))
 (defcommand tesco-staging () () "tesco staging shell" (run-shell-command "~/keyshells/tesco/staging"))
 (defcommand tesco-uat () () "tesco uat shell" (run-shell-command "~/keyshells/tesco/uat"))
+
+(defcommand setup-screens () () "setup screens" (run-shell-command "~/bin/setup-screens"))
+(defcommand reset-screens () () "reset screens" (run-shell-command "~/bin/reset-screens"))
 
 
 (defcommand lsm-prod () () "lsm
@@ -94,19 +120,8 @@
 (defcommand screensaver () () "run screensaver" (run-shell-command "~/bin/screensaver"))
 
 (multiple-define-in-map *top-map*
-                        ;; tesco shells
-                        ((kbd "s-F1") "tesco-prod")
-
-                        ;; seft shells
-                        ((kbd "s-F5") "seft-prod")
-                        ((kbd "s-F6") "seft-staging")
-
-                        ;; acca shells
-                        ((kbd "s-F8") "acca-prod")
-                        ((kbd "s-F9") "acca-oat")
-                        ((kbd "s-F10") "acca-uat")
-                        ((kbd "s-F11") "acca-sys")
-                        ((kbd "s-F12") "acca-dev")
+                        ((kbd "s-F11") "setup-screens")
+                        ((kbd "s-F12") "reset-screens")
 
                         ((kbd "s-\\") "screensaver")
                         )
@@ -192,3 +207,5 @@
 #(run-shell-command "gnome-power-manager &")
 #(run-shell-command "nm-applet &")
 #(run-shell-command "dropbox start &")
+
+#(stumptray::stumptray)

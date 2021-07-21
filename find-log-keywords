@@ -8,17 +8,35 @@ undef $state;
 
 while (<>) {
 
-    /log\.(\w+)\(\s*"(\w+)/ && do {
+    /logger\.(\w+)\(\s*"(\w+)/ && do {
         print "$ARGV:$.: $1 $2";
         next;
     };
 
-    /log\.(\w+)\(\s*$/ && do {
+    /logger\.(\w+)\(\s*$/ && do {
+        $state = "$ARGV:$.: $1";
+        next;
+    };
+    
+    /(LogSpan)\(logger,\s*"(\w+)/ && do {
+        print "$ARGV:$.: $1 $2";
+        next;
+    };
+
+    /(LogSpan)\(\s*$/ && do {
         $state = "$ARGV:$.: $1";
         next;
     };
 
     /^\s*"(\w+)/ && do {
+        if ($state) {
+            print "$state $1";
+        }
+        undef $state;
+        next;
+    };
+
+    /^\s*logger,\s*"(\w+)/ && do {
         if ($state) {
             print "$state $1";
         }
@@ -34,5 +52,6 @@ while (<>) {
 } continue {
     if (eof(ARGV)) {
         undef $state;
+        close ARGV;
     }
 }

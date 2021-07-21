@@ -7,3 +7,4 @@ alias c=cd
 alias d=mkdir
 alias l=ls
 alias ll="ls -l"
+alias k=kubectl

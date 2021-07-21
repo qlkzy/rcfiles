@@ -22,6 +22,7 @@ my @rcfiles = (
 my @bin = (
            'phrases',
            'ssig',
+           'find-log-keywords',
           );
 
 for (@rcfiles) {

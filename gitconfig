@@ -1,6 +1,6 @@
 [user]
     name = David Morris
-    email = david.morris@kcom.com
+    email = david.morris@arachnys.com
 [alias]
     d = diff --color
     dc = diff --cached --color
@@ -41,8 +41,3 @@
     b = branch
 [push]
 	default = simple
-[github]
-	user = qlkzy
-[credential]
-	helper = !aws --profile portal-commonservicesprod codecommit credential-helper $@
-	UseHttpPath = true
